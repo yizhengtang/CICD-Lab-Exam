@@ -1,5 +1,6 @@
 package ie.atu.labexam;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public List<Employee> addEmployee(@RequestBody Employee employee)
+    public List<Employee> addEmployee(@Valid @RequestBody Employee employee)
     {
         list = myService.addEmployee(employee);
         return list;
