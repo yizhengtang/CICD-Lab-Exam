@@ -16,28 +16,28 @@ public class EmployeeController {
     }
     private List<Employee> list = new ArrayList<>();
     @GetMapping("/{id}")
-    public List<Employee> getEmployees(@PathVariable int id)
+    public List<Employee> getEmployees(@PathVariable String id)
     {
         list = myService.getEmployees(id);
         return list;
     }
 
     @PostMapping
-    public List<Employee> addEmployee(@RequestParam Employee employee)
+    public List<Employee> addEmployee(@RequestBody Employee employee)
     {
         list = myService.addEmployee(employee);
         return list;
     }
 
     @PutMapping("/{id}")
-    public List<Employee> updateEmployee(@PathVariable String id,@RequestParam Employee employee)
+    public List<Employee> updateEmployee(@PathVariable String id,@RequestBody Employee employee)
     {
         list = myService.updateEmployee(id, employee);
         return list;
     }
 
     @DeleteMapping("/{id}")
-    public List<Employee> deleteEmployee(@PathVariable String id, @RequestParam Employee employee)
+    public List<Employee> deleteEmployee(@PathVariable String id, @RequestBody Employee employee)
     {
         list = myService.deleteEmployee(id, employee);
         return list;

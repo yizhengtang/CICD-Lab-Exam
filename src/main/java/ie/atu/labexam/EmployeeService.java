@@ -15,9 +15,16 @@ public class EmployeeService {
         myList.add(employee);
         return myList;
     }
-    public List<Employee> getEmployees(int id)
+    public List<Employee> getEmployees(String id)
     {
-        return myList;
+        for (int i = 0; i < myList.size(); i++) {
+            Employee e = myList.get(i);
+            if (e.getEmployeeCode().equals(id)) {
+                myList.get(i);
+                return myList;
+            }
+        }
+        throw new NoSuchElementException("Employee with ID " + id + "Not Found !!");
     }
 
     public List<Employee> updateEmployee(String id, Employee employee)
